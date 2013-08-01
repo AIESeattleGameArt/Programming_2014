@@ -1,0 +1,388 @@
+#! C:/Program Files/Nuke7.0v5/Nuke7.0.exe -nx
+version 7.0 v5
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="1970" y="0" w="1277" h="947" screen="1">
+        <splitter orientation="1">
+            <split size="796"/>
+            <splitter orientation="1">
+                <split size="40"/>
+                <dock id="" hideTitles="1" activePageId="Toolbar.1">
+                    <page id="Toolbar.1"/>
+                </dock>
+                <split size="752"/>
+                <splitter orientation="2">
+                    <split size="579"/>
+                    <dock id="" activePageId="Viewer.1">
+                        <page id="Viewer.1"/>
+                    </dock>
+                    <split size="303"/>
+                    <dock id="" activePageId="DAG.1">
+                        <page id="DAG.1"/>
+                        <page id="Curve Editor.1"/>
+                        <page id="DopeSheet.1"/>
+                    </dock>
+                </splitter>
+            </splitter>
+            <split size="461"/>
+            <dock id="" activePageId="Properties.1">
+                <page id="Properties.1"/>
+            </dock>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+ inputs 0
+ name C:/Users/Alan/Desktop/AIE_Tutorial_Title_v01.nk
+ mapsize {0.2353463588 0.5816993464}
+ frame 87
+ last_frame 600
+ lock_range true
+ fps 25
+ format "1920 1080 0 0 1920 1080 1 HD"
+ proxy_type scale
+ proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+ addUserKnob {20 mariTab l Mari}
+ addUserKnob {26 cmdStatus l "listen status" t "The status of Nuke's command port" T <b>Disabled</b>}
+ addUserKnob {26 sendStatus l "send status" t "The status of Nuke's connection to Mari" T <b>Inactive</b>}
+ addUserKnob {3 socketPort l "nuke command port" t "Port to listen on. Make sure this matches the command port set in Mari's \"Nuke\" Palette."}
+ socketPort 50107
+ addUserKnob {6 enableSocket l enabled -STARTLINE}
+ addUserKnob {26 divider l "" +STARTLINE}
+ addUserKnob {20 advanced n 1}
+ advanced 0
+ addUserKnob {3 portRange l "port range" t "If the main specified command port is unavailable, Nuke will try using the next port number, and continue until successful or the indicated number of ports have been tried."}
+ portRange 200
+ addUserKnob {4 enablePortRange l "" t "Indicates whether to use a range of ports up to the given number, or to use only the single one specified." -STARTLINE M {"use range" "single port only"}}
+ addUserKnob {6 localhostOnly l "local host only" t "This determines whether the Mari bridge server will listen for connections from any machine, or from \"localhost\" (the local machine) only.<p>Only allowing connections from localhost is more secure, but will prevent you from using the Nuke&lt;&gt;Mari workflow across the network." +STARTLINE}
+ addUserKnob {1 hostName l "mari host" t "The machine name or IP address that Mari is running on.\nLeave empty if both Mari and Nuke are running on the same machine."}
+ hostName localhost
+ addUserKnob {3 socketPortSend l port t "Port that Mari is listening to. Make sure this matches the command port set in Mari's preferences." -STARTLINE}
+ socketPortSend 6100
+ addUserKnob {2 mariDataDir l "mari data dir" t "Path to directory that will hold transient data to be sent to Mari (exrs, objs and fbx files). If this is left empty, a \"mari\" directory will be created in the nk file's location"}
+ mariDataDir "\[getenv NUKE_TEMP_DIR]/mariData"
+ addUserKnob {2 mariLocation l "mari launch path" t "The path to launch Mari from.<br>This can also be set using the <b>MARI_INSTALL_PATH</b> environment variable."}
+ addUserKnob {20 endGroup n -1}
+}
+BackdropNode {
+ inputs 0
+ name TwentyThirteen
+ tile_color 0xaaaaaa00
+ label "2013 Graphic"
+ note_font "Verdana Bold Bold Bold Bold Bold"
+ note_font_size 42
+ xpos -981
+ ypos 466
+ bdwidth 420
+ bdheight 280
+}
+StickyNote {
+ inputs 0
+ name StickyNote1
+ label "Enter Peeps Names here"
+ note_font "Verdana Bold Bold Bold Bold Bold"
+ note_font_size 14
+ xpos -858
+ ypos 37
+}
+Text {
+ inputs 0
+ message "13\n"
+ font C:/Windows/Fonts/disparador.ttf
+ size 250
+ yjustify center
+ box {480 270 1440 810}
+ translate {-388 244}
+ center {960 540}
+ color {0 0 0 1}
+ name Twelve
+ xpos -840
+ ypos 650
+}
+Transform {
+ translate {1680 -824}
+ center {960 540}
+ name Transform2
+ xpos -840
+ ypos 722
+}
+Text {
+ inputs 0
+ message TWENTY
+ font C:/Windows/Fonts/disparador.ttf
+ size 250
+ yjustify center
+ box {480 270 1440 810}
+ translate {897 -456}
+ center {960 540}
+ name Twenty
+ xpos -736
+ ypos 620
+}
+Transform {
+ center {960 540}
+ name Transform1
+ xpos -736
+ ypos 674
+}
+Transform {
+ inputs 0
+ translate {698 -196}
+ scale 0.245
+ center {886 294}
+ name BlueBoxTransform
+ xpos -738
+ ypos 563
+}
+Radial {
+ inputs 0
+ area {-130 -214 2026 1132}
+ softness 0.9
+ name Radial1
+ xpos -587
+ ypos 351
+}
+Text {
+ inputs 0
+ message "Importing a .wav SoundFile"
+ font C:/Windows/Fonts/Nilland-Bold.ttf
+ size 150
+ xjustify center
+ yjustify center
+ box {480 270 1892 810}
+ translate {-26 -100}
+ center {960 540}
+ name Man_Title
+ xpos 6
+ ypos 195
+}
+Text {
+ inputs 0
+ message "Into Autodesk Maya"
+ font C:/Windows/Fonts/Nilland-Bold.ttf
+ yjustify center
+ box {46 270 1440 810}
+ translate {820 -314}
+ center {960 540}
+ name Software
+ xpos 183
+ ypos 211
+}
+Merge2 {
+ inputs 2
+ name Merge12
+ xpos 83
+ ypos 311
+}
+Transform {
+ translate {-176 18}
+ scale {{curve x1 0.78 x60 0.9873569924 x75 1 x402 1 x525 1 x600 0.78}}
+ center {960 540}
+ name Transform4
+ xpos 83
+ ypos 352
+}
+Constant {
+ inputs 0
+ channels rgb
+ color {0.1247717962 0.5906187296 0.7156934142 0}
+ name Constant1
+ xpos -140
+ ypos -144
+}
+Grade {
+ gamma 0.7
+ name Grade5
+ xpos -140
+ ypos -46
+}
+Dot {
+ name Dot1
+ xpos -106
+ ypos 5
+}
+set N1a673db0 [stack 0]
+Text {
+ inputs 0
+ message ""
+ font C:/Windows/Fonts/Nilland-Bold.ttf
+ size 60
+ leading 0.5
+ xjustify center
+ yjustify center
+ Transform 1
+ box {-36 546 1780 1326}
+ translate {{curve x1 100 x250 100} {curve x1 -2268.834717 x7706 43797.99219}}
+ center {960 540}
+ name Class_Members
+ xpos -664
+ ypos 39
+}
+set N1a674490 [stack 0]
+EdgeBlur {
+ size 25
+ name EdgeBlur1
+ xpos -664
+ ypos 91
+}
+Invert {
+ name Invert1
+ xpos -664
+ ypos 158
+}
+Grade {
+ white 0.8
+ gamma 0.2
+ name Grade1
+ xpos -664
+ ypos 222
+}
+push $N1a674490
+push 0
+Merge2 {
+ inputs 2
+ name Merge3
+ xpos -464
+ ypos 45
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge4
+ xpos -464
+ ypos 222
+}
+Merge2 {
+ inputs 2
+ name Merge5
+ xpos -404
+ ypos 293
+}
+push $N1a673db0
+EdgeBlur {
+ size 25
+ name EdgeBlur2
+ xpos -140
+ ypos 124
+}
+Grade {
+ white 0.8
+ gamma 0.2
+ name Grade2
+ xpos -140
+ ypos 239
+}
+Merge2 {
+ inputs 2
+ operation plus
+ name Merge6
+ xpos -404
+ ypos 331
+}
+Merge2 {
+ inputs 2
+ mix {{curve x1 0 x18 1 x582 1 x600 0}}
+ name Merge11
+ xpos -404
+ ypos 388
+}
+Merge2 {
+ inputs 2
+ operation multiply
+ mix 0.51
+ name Merge1
+ xpos -404
+ ypos 449
+}
+Grain2 {
+ name Grain2_1
+ label "Kodak GT5274"
+ xpos -404
+ ypos 516
+ red_size 0.04
+ green_size 0.1
+ blue_size 0.9
+ red_i 0.9
+ green_i 0.76
+ blue_i 0.81
+ red_m 0.375
+ green_m 0.275
+ blue_m 0.66
+ black 0.0006
+ minimum {0 0 0}
+}
+Grade {
+ multiply 0.94
+ add -0.003
+ gamma 0.73
+ name Grade3
+ xpos -404
+ ypos 574
+}
+Merge2 {
+ inputs 2
+ mix {{curve i x1 0 x36 1 x564 1 x600 0 x928 0}}
+ name Merge9
+ xpos -404
+ ypos 610
+}
+Merge2 {
+ inputs 2
+ mix {{curve x1 0 x36 1 x564 1 x600 0 x928 0}}
+ name Merge2
+ xpos -404
+ ypos 665
+}
+Merge2 {
+ inputs 2
+ mix {{curve i x1 0 x36 1 x564 1 x600 0 x928 0}}
+ name Merge7
+ xpos -404
+ ypos 722
+}
+Write {
+ file C:/Users/Alan/Videos/soundimport.mov
+ proxy C:/Users/Alan/Videos/
+ views {}
+ file_type mov
+ codec mjp2
+ Flatten false
+ first -75
+ last 600
+ checkHashOnRead false
+ version 17
+ name Write1
+ xpos -404
+ ypos 907
+}
+Viewer {
+ frame 87
+ frame_range 1-600
+ frame_range_lock true
+ fps 25
+ input_process false
+ translate {0.1860000044 -0.6940000057}
+ rotate -2970
+ name Viewer1
+ xpos -419
+ ypos 1086
+}
+StickyNote {
+ inputs 0
+ name StickyNote2
+ label "Enter Title Name here"
+ note_font "Verdana Bold Bold Bold Bold Bold"
+ note_font_size 14
+ xpos -21
+ ypos 118
+}
+StickyNote {
+ inputs 0
+ name StickyNote3
+ label "Subline Title"
+ note_font "Verdana Bold"
+ note_font_size 12
+ xpos 181
+ ypos 123
+}
